@@ -1,5 +1,5 @@
-#BERT-base-uncase version
-#3 sentiment - pos,neg,off
+#RoBERTa-base version
+#2 sentiment - pos,neg (off ถูกลบออก)
 import numpy as np
 import pandas as pd
 import torch

@@ -174,7 +174,12 @@ def train_one_fold(train_df, val_df, test_df, fold_name: str):
     out_dir = os.path.join("t5_kfold_outputs", fold_name)
     os.makedirs(out_dir, exist_ok=True)
 
-    
+
+ # ----------------------------
+# Config Hugging Face
+# Link : https://huggingface.co/docs/transformers/trainer
+# ----------------------------
+
     args = Seq2SeqTrainingArguments(
         output_dir=out_dir,
         eval_strategy="epoch",

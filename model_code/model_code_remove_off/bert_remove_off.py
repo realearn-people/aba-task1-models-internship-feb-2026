@@ -1,5 +1,5 @@
 #BERT-base-uncase version
-#3 sentiment - pos,neg,off
+#2 sentiment - pos,neg (off ถูกลบออก)
 import numpy as np
 import pandas as pd
 import torch
@@ -36,7 +36,7 @@ ID_COL_POS = 0     # Column A
 TEXT_COL_POS = 6   # Column G
 SENT_COL_POS = 7   # Column H
 
-# 3-class mapping
+# 2-class mapping
 label2id = {"negative": 0, "positive": 1}
 id2label = {0: "Negative", 1: "Positive"}
 
@@ -132,7 +132,8 @@ def compute_metrics(eval_pred):
     }
 
 # ----------------------------
-# 6) Training
+# 6) Training.  Config Hugging Face
+# Link : https://huggingface.co/docs/transformers/trainer
 # ----------------------------
 args = TrainingArguments(
     output_dir="bert_remove_off_3class_out",

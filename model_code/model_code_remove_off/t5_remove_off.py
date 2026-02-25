@@ -173,7 +173,8 @@ def compute_metrics(eval_pred):
     }
 
 # ----------------------------
-# 6) Training
+# 6) Training.  Config Hugging Face
+# Link : https://huggingface.co/docs/transformers/trainer
 # ----------------------------
 args = Seq2SeqTrainingArguments(
     output_dir="t5_baseremove_off_3class_out",

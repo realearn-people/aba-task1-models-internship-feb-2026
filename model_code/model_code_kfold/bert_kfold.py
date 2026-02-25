@@ -136,11 +136,16 @@ def train_one_fold(train_df, val_df, test_df, fold_name: str): #ใช้สำ�
     out_dir = os.path.join("bert_kfold_outputs", fold_name)
     os.makedirs(out_dir, exist_ok=True)
 
+# ----------------------------
+# Config Hugging Face
+# Link : https://huggingface.co/docs/transformers/trainer
+# ----------------------------
+
     args = TrainingArguments(
         output_dir=out_dir,
         eval_strategy="epoch",
         save_strategy="epoch",
-        save_total_limit=1, #กันเมมเต็ม
+        save_total_limit=1, 
         learning_rate=2e-5,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,

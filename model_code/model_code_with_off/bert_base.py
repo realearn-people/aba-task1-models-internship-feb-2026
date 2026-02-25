@@ -153,8 +153,10 @@ def compute_metrics(eval_pred):
     }
 
 # ----------------------------
-# 6) Training
+# 6) Training.  Config Hugging Face
+# Link : https://huggingface.co/docs/transformers/trainer
 # ----------------------------
+
 args = TrainingArguments(
     output_dir="bert_3class_out",
     eval_strategy="epoch",
@@ -164,9 +166,9 @@ args = TrainingArguments(
     per_device_eval_batch_size=16,
     num_train_epochs=3,
     weight_decay=0.01,
-    load_best_model_at_end=True, #จบเทรนแล้วโหลดโมเดลที่ดีที่สุดกลับมาให้ trainer.model
-    metric_for_best_model="f1_macro", #ใช้ f1_macro เป็นตัววัดว่าโมเดลไหนดีที่สุด (มากกว่า accuracy เพราะมี 3 คลาส)
-    greater_is_better=True, #ค่า F1 ยิ่งมากยิ่งดี
+    load_best_model_at_end=True, 
+    metric_for_best_model="f1_macro", 
+    greater_is_better=True, 
     seed=SEED,
     logging_steps=50,
 )

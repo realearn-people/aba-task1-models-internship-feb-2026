@@ -152,7 +152,8 @@ def compute_metrics(eval_pred):
     }
 
 # ----------------------------
-# 6) Training
+# 6) Training.  Config Hugging Face
+# Link : https://huggingface.co/docs/transformers/trainer
 # ----------------------------
 args = TrainingArguments(
     output_dir="bart_3class_out",

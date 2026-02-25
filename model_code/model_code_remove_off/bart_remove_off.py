@@ -1,5 +1,5 @@
-#BERT-base-uncase version
-#3 sentiment - pos,neg,off
+#BART-base version
+#2 sentiment - pos,neg (off ถูกลบออก)
 import numpy as np
 import pandas as pd
 import torch
@@ -103,7 +103,7 @@ test_ds  = Dataset.from_pandas(test_df[["text", "label"]].reset_index(drop=True)
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
 # ----------------------------
-# 4) Model (BERT base uncased, 3 labels)
+# 4) Model (BERT base uncased, 2 labels)
 # ----------------------------
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME, num_labels=2)
 
@@ -132,8 +132,10 @@ def compute_metrics(eval_pred):
     }
 
 # ----------------------------
-# 6) Training
+# 6) Training.  Config Hugging Face
+# Link : https://huggingface.co/docs/transformers/trainer
 # ----------------------------
+
 args = TrainingArguments(
     output_dir="bart_remove_off_3class_out",
     eval_strategy="epoch",
